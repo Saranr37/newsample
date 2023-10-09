@@ -13,8 +13,8 @@ steps:
 
 
 - script: |
-    sudo apt-get update
-    sudo apt-get install -y apache2  # Install Apache HTTP Server (httpd)
+    sudo yum update -y
+    sudo yum install -y apache2  # Install Apache HTTP Server (httpd)
   displayName: 'Install Apache'
 
 - checkout: self
