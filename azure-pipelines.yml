@@ -21,9 +21,9 @@ steps:
 
 - task: CopyFiles@2
   inputs:
-    sourceFolder: '/index.html' # Root of the repository
+    sourceFolder: 'Saranr37/newsample/index.html' # Root of the repository
     targetFolder: '/var/www/html/' # Apache web root directory
-    contents: 'index.html' # File to copy
+    contents: '/index.html' # File to copy
   displayName: 'Copy index.html'
 
 - script: |
