@@ -14,7 +14,7 @@ steps:
 
 - script: |
     sudo yum update -y
-    sudo yum install -y apache2  # Install Apache HTTP Server (httpd)
+    sudo yum install -y httpd  # Install Apache HTTP Server (httpd)
   displayName: 'Install Apache'
 
 - checkout: self
