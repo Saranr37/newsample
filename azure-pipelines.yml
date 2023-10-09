@@ -1,0 +1,35 @@
+# HTML
+# Archive your static HTML project and save it with the build record.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  name: aws ec2  # Use an Ubuntu agent for this example
+
+steps:
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '3.x'
+    addToPath: true
+
+- script: |
+    sudo apt-get update
+    sudo apt-get install -y apache2  # Install Apache HTTP Server (httpd)
+  displayName: 'Install Apache'
+
+- checkout: self
+
+- task: CopyFiles@2
+  inputs:
+    sourceFolder: '/index.html' # Root of the repository
+    targetFolder: '/var/www/html/' # Apache web root directory
+    contents: 'index.html' # File to copy
+  displayName: 'Copy index.html'
+
+- script: |
+    sudo systemctl start apache2  # Start Apache service
+    sudo systemctl enable apache2  # Enable Apache service to start on boot
+  displayName: 'Start Apache Service'
