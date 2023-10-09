@@ -10,10 +10,7 @@ pool:
   name: aws ec2  # Use an Ubuntu agent for this example
 
 steps:
-- task: UsePythonVersion@0
-  inputs:
-    versionSpec: '3.x'
-    addToPath: true
+
 
 - script: |
     sudo apt-get update
